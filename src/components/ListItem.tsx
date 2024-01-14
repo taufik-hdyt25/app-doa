@@ -4,13 +4,15 @@ import { IDoa } from "../interfaces/doa.interface";
 type ListItem = {
   data?: IDoa;
   navigation: any;
+handleTouch: ()=> void
 };
-const ListItem = ({ data, navigation }: ListItem) => {
+const ListItem = ({ data, navigation ,handleTouch}: ListItem) => {
   return (
     <View>
       <Pressable
         onPress={() => {
           navigation.navigate("DetailScreen", {id:data?.id});
+          handleTouch()
         }}
       >
         <View
