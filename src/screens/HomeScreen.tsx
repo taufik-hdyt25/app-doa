@@ -33,7 +33,7 @@ const HomeScreen = ({ navigation }: any) => {
     if (countTouch < 5) {
       setCountTouch((prevCount) => prevCount + 1);
     } else {
-      setCountTouch(0);
+      setCountTouch(1);
     }
   };
 
