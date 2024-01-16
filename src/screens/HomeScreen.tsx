@@ -5,9 +5,7 @@ import { StatusBar, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import {
   AdEventType,
-  InterstitialAd,
-  TestIds,
-  
+  InterstitialAd
 } from "react-native-google-mobile-ads";
 import ListItem from "../components/ListItem";
 import { IDoa } from "../interfaces/doa.interface";
@@ -24,7 +22,8 @@ const HomeScreen = ({ navigation }: any) => {
   });
 
   // buat iklan muncul full
-  const interstitial = InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL, {
+  const idAds = "ca-app-pub-9903584691242938/5635050579"
+  const interstitial = InterstitialAd.createForAdRequest(idAds, {
     requestNonPersonalizedAdsOnly: true,
     keywords: ["fashion", "clothing"],
   });
@@ -60,21 +59,37 @@ const HomeScreen = ({ navigation }: any) => {
   if (!loaded) {
     return null;
   }
+  
 
+  
+  
+  
   return (
     <View>
       <StatusBar backgroundColor="#6379EA" />
       <ScrollView>
         <View style={{ padding: 10, gap: 5 }}>
-          {isLoading && <Text>Loading...</Text>}
+          {isLoading && (
+            <Text
+              style={{
+                fontSize: 16,
+                fontFamily: "Poppins-Regular",
+                color: "black",
+                fontWeight: "800",
+              }}
+            >
+              Loading...
+            </Text>
+          )}
           {data?.map((data: IDoa) => (
-            <ListItem
-              handleTouch={handleTouch}
-              key={data.id}
-              navigation={navigation}
-              data={data}
-            />
-          ))}
+              <ListItem
+                handleTouch={handleTouch}
+                key={data.id}
+                navigation={navigation}
+                data={data}
+              />
+            ))
+          }
         </View>
       </ScrollView>
     </View>

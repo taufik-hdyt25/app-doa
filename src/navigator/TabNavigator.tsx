@@ -36,7 +36,7 @@ const TabNavigator = () => {
       />
 
       <Tab.Screen
-        name="Tentang App"
+        name="About"
         component={SettingScreen}
         options={{
           tabBarIcon: ({ color }: any) => (

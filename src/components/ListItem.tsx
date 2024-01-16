@@ -4,15 +4,15 @@ import { IDoa } from "../interfaces/doa.interface";
 type ListItem = {
   data?: IDoa;
   navigation: any;
-handleTouch: ()=> void
+  handleTouch: () => void;
 };
-const ListItem = ({ data, navigation ,handleTouch}: ListItem) => {
+const ListItem = ({ data, navigation, handleTouch }: ListItem) => {
   return (
     <View>
       <Pressable
         onPress={() => {
-          navigation.navigate("DetailScreen", {id:data?.id});
-          handleTouch()
+          navigation.navigate("DetailScreen", { id: data?.id });
+          handleTouch();
         }}
       >
         <View
@@ -27,7 +27,13 @@ const ListItem = ({ data, navigation ,handleTouch}: ListItem) => {
             borderRadius: 10,
           }}
         >
-          <Text style={{ color: "black", fontWeight: "500" }}>
+          <Text
+            style={{
+              color: "black",
+              fontWeight: "500",
+              fontFamily: "Poppins-Regular",
+            }}
+          >
             {data?.id}.{" "}
           </Text>
           <Text

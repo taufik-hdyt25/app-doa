@@ -4,6 +4,8 @@ import DetailScreen from "../screens/DetailScreen";
 
 import { createStackNavigator } from "@react-navigation/stack";
 import { Image, StyleSheet, Text, View } from "react-native";
+import PrivacyPolicy from "../screens/PrivacyPolicy";
+import TremsScreen from "../screens/TermsScreen";
 
 const Stack = createStackNavigator();
 
@@ -51,6 +53,25 @@ function StackNavigator() {
         }}
         name="HomeScreen"
         component={TabNavigator}
+      />
+
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          headerTitle: "Privacy Policy",
+          headerTintColor: "white",
+        }}
+        name="Privacy"
+        component={PrivacyPolicy}
+      />
+            <Stack.Screen
+        options={{
+          headerShown: true,
+          headerTitle: "Terms & Conditions",
+          headerTintColor: "white",
+        }}
+        name="Trems"
+        component={TremsScreen}
       />
     </Stack.Navigator>
   );
