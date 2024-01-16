@@ -20,6 +20,8 @@ const DetailScreen = ({ route }: any) => {
     },
   });
 
+  const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-9903584691242938/8201278827';
+
   return (
     <SafeAreaView>
       <ScrollView>
@@ -53,9 +55,9 @@ const DetailScreen = ({ route }: any) => {
 
       <View style={{display:"flex",flexDirection:"row", justifyContent:"center"}}>
         <GAMBannerAd
-          unitId={TestIds.BANNER}
+          unitId={adUnitId}
           sizes={[BannerAdSize.LARGE_BANNER]}
-          requestOptions={{
+          requestOptions={{ 
             requestNonPersonalizedAdsOnly: true,
           }}
         />

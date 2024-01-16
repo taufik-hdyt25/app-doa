@@ -30,7 +30,8 @@ const TabNavigator = () => {
         options={{
           tabBarIcon: ({ color }: any) => (
             <MaterialIcons name="home" color={color} size={25} />
-          ),
+            ),
+          
         }}
       />
 
