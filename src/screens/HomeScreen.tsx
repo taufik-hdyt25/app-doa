@@ -3,10 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { StatusBar, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import {
-  AdEventType,
-  InterstitialAd
-} from "react-native-google-mobile-ads";
+import { AdEventType, InterstitialAd } from "react-native-google-mobile-ads";
 import ListItem from "../components/ListItem";
 import { IDoa } from "../interfaces/doa.interface";
 
@@ -22,7 +19,7 @@ const HomeScreen = ({ navigation }: any) => {
   });
 
   // buat iklan muncul full
-  const idAds = "ca-app-pub-9903584691242938/5635050579"
+  const idAds = "ca-app-pub-9903584691242938/5635050579";
   const interstitial = InterstitialAd.createForAdRequest(idAds, {
     requestNonPersonalizedAdsOnly: true,
     keywords: ["fashion", "clothing"],
@@ -37,14 +34,10 @@ const HomeScreen = ({ navigation }: any) => {
     }
   };
 
-  const [loaded, setLoaded] = useState(false);
-
   useEffect(() => {
     const unsubscribe = interstitial.addAdEventListener(
       AdEventType.LOADED,
       () => {
-        setLoaded(true);
-
         if (countTouch === 3) {
           interstitial.show();
         }
@@ -56,14 +49,6 @@ const HomeScreen = ({ navigation }: any) => {
     return unsubscribe;
   }, [countTouch]);
 
-  if (!loaded) {
-    return null;
-  }
-  
-
-  
-  
-  
   return (
     <View>
       <StatusBar backgroundColor="#6379EA" />
@@ -82,14 +67,13 @@ const HomeScreen = ({ navigation }: any) => {
             </Text>
           )}
           {data?.map((data: IDoa) => (
-              <ListItem
-                handleTouch={handleTouch}
-                key={data.id}
-                navigation={navigation}
-                data={data}
-              />
-            ))
-          }
+            <ListItem
+              handleTouch={handleTouch}
+              key={data.id}
+              navigation={navigation}
+              data={data}
+            />
+          ))}
         </View>
       </ScrollView>
     </View>
