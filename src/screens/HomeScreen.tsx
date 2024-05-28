@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { StatusBar, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { AdEventType, InterstitialAd } from "react-native-google-mobile-ads";
+import { AdEventType, InterstitialAd,TestIds } from "react-native-google-mobile-ads";
 import ListItem from "../components/ListItem";
 import { IDoa } from "../interfaces/doa.interface";
 
@@ -20,7 +20,7 @@ const HomeScreen = ({ navigation }: any) => {
 
   // buat iklan muncul full
   const idAds = "ca-app-pub-9903584691242938/5635050579";
-  const interstitial = InterstitialAd.createForAdRequest(idAds, {
+  const interstitial = InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL, {
     requestNonPersonalizedAdsOnly: true,
     keywords: ["fashion", "clothing"],
   });

@@ -3,7 +3,8 @@ import axios from "axios";
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import {
   BannerAd,
-  BannerAdSize
+  BannerAdSize,
+  TestIds
 } from "react-native-google-mobile-ads";
 import { IDoa } from "../interfaces/doa.interface";
 
@@ -65,8 +66,8 @@ const DetailScreen = ({ route }: any) => {
         }}
       >
         <BannerAd
-          unitId={productionId}
-          size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+          unitId={TestIds.BANNER}
+          size={BannerAdSize.LARGE_BANNER}
         />
       </View>
     </SafeAreaView>
