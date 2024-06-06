@@ -56,10 +56,8 @@ const DetailScreen = ({ route }: any) => {
 
       <View
         style={{
-          position: "absolute",
           alignItems: "center",
-          width: "100%",
-          bottom: 0,
+          width: "100%"
         }}
       >
         <View style={{ flexDirection: "row", alignItems: "center" }}>

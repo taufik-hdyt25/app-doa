@@ -5,11 +5,9 @@ import {
   ActivityIndicator,
   Dimensions,
   FlatList,
-  StatusBar,
   Text,
   View,
 } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
 import {
   AdEventType,
   BannerAd,
@@ -18,7 +16,7 @@ import {
   TestIds,
 } from "react-native-google-mobile-ads";
 import ListItem from "../components/ListItem";
-import { IDoa } from "../interfaces/doa.interface";
+import { adsConfig } from "../utils/adsGlobal";
 
 const HomeScreen = ({ navigation }: any) => {
   const { data: datas, isLoading } = useQuery({
@@ -32,6 +30,7 @@ const HomeScreen = ({ navigation }: any) => {
   });
 
   const [activeAds, setActiveAds] = useState(false);
+  const { bannerAds, interstialAds } = adsConfig("prod");
 
   // buat iklan muncul full
 
@@ -49,21 +48,21 @@ const HomeScreen = ({ navigation }: any) => {
     const unsubscribe = interstitial.addAdEventListener(
       AdEventType.LOADED,
       () => {
-        if (countTouch % 2 === 0) {
+        if (countTouch % 3 === 0) {
           setActiveAds(true);
           interstitial.show();
         }
       }
     );
-    const closed = interstitial.addAdEventListener(AdEventType.CLOSED, ()=> {
-      setActiveAds(false)
-    })
+    const closed = interstitial.addAdEventListener(AdEventType.CLOSED, () => {
+      setActiveAds(false);
+    });
 
     interstitial.load();
 
-    return ()=> {
-      unsubscribe()
-      closed()
+    return () => {
+      unsubscribe();
+      closed();
     };
   }, [countTouch]);
 
