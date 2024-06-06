@@ -22,8 +22,9 @@ function StackNavigator() {
         },
         headerStyle: {
           height: 50,
-          backgroundColor: "#6379EA",
+          backgroundColor: "#2D3250",
         },
+        
       }}
     >
       <Stack.Screen name="SplashScreen" component={SplashScreen} />
@@ -50,6 +51,7 @@ function StackNavigator() {
           ),
 
           headerTintColor: "white",
+          
         }}
         name="HomeScreen"
         component={TabNavigator}
@@ -90,5 +92,6 @@ const style = StyleSheet.create({
   titleHome: {
     color: "white",
     fontSize: 16,
+    fontFamily: "Poppins-SemiBold"
   },
 });

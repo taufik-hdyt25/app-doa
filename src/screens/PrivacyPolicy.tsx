@@ -1,12 +1,14 @@
 import {
-    Linking,
-    SafeAreaView,
-    ScrollView,
-    StyleSheet,
-    Text,
-    View
+  Dimensions,
+  Linking,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
 } from "react-native";
 import ListSection from "../components/ListSection";
+import { BannerAd, BannerAdSize, TestIds } from "react-native-google-mobile-ads";
 
 interface IData {
   title: string;
@@ -15,6 +17,15 @@ interface IData {
 const PrivacyPolicy = () => {
   return (
     <SafeAreaView>
+      <View
+        style={{
+          top: 0,
+          width: Dimensions.get("window").width,
+          alignItems: "center",
+        }}
+      >
+        <BannerAd unitId={TestIds.BANNER} size={BannerAdSize.LARGE_BANNER} />
+      </View>
       <ScrollView>
         <View style={{ padding: 10 }}>
           <Text style={style.privacyTitle}>Privacy Policy</Text>

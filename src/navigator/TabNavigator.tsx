@@ -12,7 +12,7 @@ const TabNavigator = () => {
       screenOptions={{
         headerShown:false,
         tabBarStyle: {
-          backgroundColor: "#6379EA",
+          backgroundColor: "#2D3250",
           paddingTop:5
         },
         tabBarLabelStyle: {
@@ -31,7 +31,6 @@ const TabNavigator = () => {
           tabBarIcon: ({ color }: any) => (
             <MaterialIcons name="home" color={color} size={25} />
             ),
-          
         }}
       />
 

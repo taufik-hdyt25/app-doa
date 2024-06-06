@@ -5,13 +5,15 @@ type ListItem = {
   data?: IDoa;
   navigation: any;
   handleTouch: () => void;
+  index?:number
+  allDatas: IDoa[]
 };
-const ListItem = ({ data, navigation, handleTouch }: ListItem) => {
+const ListItem = ({ data, navigation, handleTouch,allDatas,index }: ListItem) => {
   return (
     <View>
       <Pressable
         onPress={() => {
-          navigation.navigate("DetailScreen", { id: data?.id });
+          navigation.navigate("DetailScreen", {allDatas,index});
           handleTouch();
         }}
       >

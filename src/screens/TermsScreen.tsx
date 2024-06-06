@@ -1,9 +1,30 @@
-import { Linking, SafeAreaView, ScrollView, Text, View } from "react-native";
+import {
+  Dimensions,
+  Linking,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  View,
+} from "react-native";
 import ListSection from "../components/ListSection";
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
 
 const TremsScreen = () => {
   return (
     <SafeAreaView style={{ padding: 10 }}>
+      <View
+        style={{
+          top: 0,
+          width: Dimensions.get("window").width,
+          alignItems: "center",
+        }}
+      >
+        <BannerAd unitId={TestIds.BANNER} size={BannerAdSize.LARGE_BANNER} />
+      </View>
       <ScrollView>
         <View>
           <Text
@@ -202,7 +223,7 @@ const TremsScreen = () => {
               }
               style={{ color: "blue" }}
             >
-               App Privacy Policy Generator
+              App Privacy Policy Generator
             </Text>
           </Text>
         </View>
