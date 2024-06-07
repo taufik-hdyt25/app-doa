@@ -12,8 +12,10 @@ import {
   BannerAdSize,
   TestIds,
 } from "react-native-google-mobile-ads";
+import { adsConfig } from "../utils/adsGlobal";
 
 const TremsScreen = () => {
+  const { bannerAds, interstialAds } = adsConfig("prod");
   return (
     <SafeAreaView style={{ padding: 10 }}>
       <View
@@ -23,7 +25,7 @@ const TremsScreen = () => {
           alignItems: "center",
         }}
       >
-        <BannerAd unitId={TestIds.BANNER} size={BannerAdSize.LARGE_BANNER} />
+        <BannerAd unitId={bannerAds} size={BannerAdSize.LARGE_BANNER} />
       </View>
       <ScrollView>
         <View>

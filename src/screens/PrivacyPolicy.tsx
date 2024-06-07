@@ -9,12 +9,14 @@ import {
 } from "react-native";
 import ListSection from "../components/ListSection";
 import { BannerAd, BannerAdSize, TestIds } from "react-native-google-mobile-ads";
+import { adsConfig } from "../utils/adsGlobal";
 
 interface IData {
   title: string;
   link: string;
 }
 const PrivacyPolicy = () => {
+  const { bannerAds, interstialAds } = adsConfig("prod");
   return (
     <SafeAreaView>
       <View
@@ -24,7 +26,7 @@ const PrivacyPolicy = () => {
           alignItems: "center",
         }}
       >
-        <BannerAd unitId={TestIds.BANNER} size={BannerAdSize.LARGE_BANNER} />
+        <BannerAd unitId={bannerAds} size={BannerAdSize.LARGE_BANNER} />
       </View>
       <ScrollView>
         <View style={{ padding: 10 }}>
