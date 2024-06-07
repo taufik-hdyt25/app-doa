@@ -5,10 +5,18 @@ type ListItem = {
   data?: IDoa;
   navigation: any;
   handleTouch: () => void;
-  index?:number
-  allDatas: IDoa[]
+  index:number
+  allDatas?: IDoa[]
 };
 const ListItem = ({ data, navigation, handleTouch,allDatas,index }: ListItem) => {
+  const singkatKalimat = (kalimat:any) => {
+    const kata = kalimat.split(' '); // Memecah kalimat menjadi array kata
+    if (kata.length > 5) { // Jika jumlah kata lebih dari 4
+      return kata.slice(0, 4).join(' ') + '...'; // Menggabungkan kata pertama sampai ke-4 dan menambahkan "..."
+    } else {
+      return kalimat; // Jika kata 4 atau kurang, kembalikan kalimat asli
+    }
+  };
   return (
     <View>
       <Pressable
@@ -36,16 +44,18 @@ const ListItem = ({ data, navigation, handleTouch,allDatas,index }: ListItem) =>
               fontFamily: "Poppins-Regular",
             }}
           >
-            {data?.id}.{" "}
+            {`${index + 1}. `}
           </Text>
           <Text
+          
             style={{
               color: "black",
               fontSize: 14,
               fontFamily: "Poppins-Regular",
+        
             }}
           >
-            {data?.doa}
+            {singkatKalimat(data?.doa)}
           </Text>
         </View>
       </Pressable>

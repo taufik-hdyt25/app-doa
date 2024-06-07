@@ -6,12 +6,11 @@ import {
   Text,
   View,
 } from "react-native";
-import ListSection from "../components/ListSection";
 import {
   BannerAd,
-  BannerAdSize,
-  TestIds,
+  BannerAdSize
 } from "react-native-google-mobile-ads";
+import ListSection from "../components/ListSection";
 import { adsConfig } from "../utils/adsGlobal";
 
 const TremsScreen = () => {

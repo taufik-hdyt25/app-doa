@@ -1,5 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-import axios, { all } from "axios";
+import { useState } from "react";
 import {
   SafeAreaView,
   ScrollView,
@@ -10,13 +9,8 @@ import {
 } from "react-native";
 import {
   BannerAd,
-  BannerAdSize,
-  TestIds,
-  useInterstitialAd,
+  BannerAdSize
 } from "react-native-google-mobile-ads";
-import { IDoa } from "../interfaces/doa.interface";
-import { Button } from "react-native-paper";
-import { useEffect, useState } from "react";
 import { adsConfig } from "../utils/adsGlobal";
 
 const DetailScreen = ({ route }: any) => {
