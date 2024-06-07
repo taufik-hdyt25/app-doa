@@ -23,7 +23,7 @@ import { adsConfig } from "../utils/adsGlobal";
 
 const SettingScreen = ({ navigation }: any) => {
   const [visible, setVisible] = useState(false);
-  const { bannerAds, interstialAds } = adsConfig("pro");
+  const { bannerAds, interstialAds } = adsConfig("prod");
   const [message, setMessage] = useState("");
   const sendRequest = () => {
     if (message === "") {

@@ -14,7 +14,7 @@ import ListSection from "../components/ListSection";
 import { adsConfig } from "../utils/adsGlobal";
 
 const TremsScreen = () => {
-  const { bannerAds, interstialAds } = adsConfig("pro");
+  const { bannerAds, interstialAds } = adsConfig("prod");
   return (
     <SafeAreaView style={{ padding: 10 }}>
       <View

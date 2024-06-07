@@ -18,7 +18,7 @@ const DetailScreen = ({ route }: any) => {
   const [data, setData] = useState(allDatas);
   const [activeIndex, setActiveIndex] = useState(index);
   const [count, setCount] = useState(3);
-  const { interstialAds, bannerAds } = adsConfig("pro");
+  const { interstialAds, bannerAds } = adsConfig("prod");
   // // ADS
   // // menggunakan hooks
   // const { isLoaded, isClosed, load, show } = useInterstitialAd(

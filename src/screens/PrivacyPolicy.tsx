@@ -16,7 +16,7 @@ interface IData {
   link: string;
 }
 const PrivacyPolicy = () => {
-  const { bannerAds, interstialAds } = adsConfig("pro");
+  const { bannerAds, interstialAds } = adsConfig("prod");
   return (
     <SafeAreaView>
       <View

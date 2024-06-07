@@ -33,7 +33,7 @@ const HomeScreen = ({ navigation }: any) => {
 
 
   const [activeAds, setActiveAds] = useState(false);
-  const { bannerAds, interstialAds } = adsConfig("pro");
+  const { bannerAds, interstialAds } = adsConfig("prod");
 
   // buat iklan muncul full
 
