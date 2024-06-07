@@ -12,16 +12,36 @@ import {
   BannerAd,
   BannerAdSize,
   TestIds,
+  useInterstitialAd,
 } from "react-native-google-mobile-ads";
 import { IDoa } from "../interfaces/doa.interface";
 import { Button } from "react-native-paper";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { adsConfig } from "../utils/adsGlobal";
 
 const DetailScreen = ({ route }: any) => {
   const { allDatas, index } = route?.params;
   const [data, setData] = useState(allDatas);
   const [activeIndex, setActiveIndex] = useState(index);
-  
+  const [count, setCount] = useState(3);
+  const { interstialAds, bannerAds } = adsConfig("prod");
+  // // ADS
+  // // menggunakan hooks
+  // const { isLoaded, isClosed, load, show } = useInterstitialAd(
+  //   TestIds.INTERSTITIAL,
+  //   {
+  //     requestNonPersonalizedAdsOnly: true,
+  //   }
+  // );
+  // // untuk load iklan
+  // useEffect(() => {
+  //   if (count % 5 === 0) {
+  //     if(isLoaded){
+  //       show()
+  //     }
+  //   }
+  //   load();
+  // }, [load, count]);
 
   return (
     <SafeAreaView style={{ height: "100%" }}>
@@ -57,7 +77,7 @@ const DetailScreen = ({ route }: any) => {
       <View
         style={{
           alignItems: "center",
-          width: "100%"
+          width: "100%",
         }}
       >
         <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -73,6 +93,7 @@ const DetailScreen = ({ route }: any) => {
                 return;
               } else {
                 setActiveIndex(activeIndex - 1);
+                setCount(count + 1);
               }
             }}
           >
@@ -90,6 +111,7 @@ const DetailScreen = ({ route }: any) => {
             }}
             onPress={() => {
               setActiveIndex((activeIndex + 1) % data?.length);
+              setCount(count + 1);
             }}
           >
             <Text style={{ fontFamily: "Poppins-SemiBold", color: "white" }}>
@@ -99,7 +121,7 @@ const DetailScreen = ({ route }: any) => {
         </View>
 
         <View style={{ height: 20 }} />
-        <BannerAd unitId={TestIds.BANNER} size={BannerAdSize.LARGE_BANNER} />
+        <BannerAd unitId={bannerAds} size={BannerAdSize.LARGE_BANNER} />
       </View>
     </SafeAreaView>
   );

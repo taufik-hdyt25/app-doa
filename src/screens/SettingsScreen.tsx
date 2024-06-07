@@ -19,9 +19,11 @@ import IconsFont from "react-native-vector-icons/FontAwesome";
 import IconsMaterial from "react-native-vector-icons/MaterialCommunityIcons";
 import { useState } from "react";
 import Mailer from "react-native-mail";
+import { adsConfig } from "../utils/adsGlobal";
 
 const SettingScreen = ({ navigation }: any) => {
   const [visible, setVisible] = useState(false);
+  const { bannerAds, interstialAds } = adsConfig("prod");
   const [message, setMessage] = useState("");
   const sendRequest = () => {
     if (message === "") {
@@ -173,7 +175,7 @@ const SettingScreen = ({ navigation }: any) => {
         position:"absolute",
         bottom:0
       }}>
-        <BannerAd unitId={TestIds.BANNER} size={BannerAdSize.FULL_BANNER} />
+        <BannerAd unitId={bannerAds} size={BannerAdSize.FULL_BANNER} />
       </View>
     </View>
   );

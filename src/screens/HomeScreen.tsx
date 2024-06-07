@@ -34,7 +34,7 @@ const HomeScreen = ({ navigation }: any) => {
 
   // buat iklan muncul full
 
-  const interstitial = InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL, {
+  const interstitial = InterstitialAd.createForAdRequest(interstialAds, {
     requestNonPersonalizedAdsOnly: true,
     keywords: ["fashion", "clothing"],
   });
@@ -75,7 +75,7 @@ const HomeScreen = ({ navigation }: any) => {
         }}
       >
         {!activeAds && (
-          <BannerAd unitId={TestIds.BANNER} size={BannerAdSize.FULL_BANNER} />
+          <BannerAd unitId={bannerAds} size={BannerAdSize.FULL_BANNER} />
         )}
       </View>
       <View style={{ padding: 10, gap: 5 }}>
