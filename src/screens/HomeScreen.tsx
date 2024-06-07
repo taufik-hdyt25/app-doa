@@ -68,12 +68,7 @@ const HomeScreen = ({ navigation }: any) => {
 
   return (
     <View>
-      <View
-        style={{
-          position: "absolute",
-          bottom: 0,
-        }}
-      >
+      <View>
         {!activeAds && (
           <BannerAd unitId={bannerAds} size={BannerAdSize.FULL_BANNER} />
         )}
