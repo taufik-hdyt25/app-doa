@@ -6,16 +6,15 @@ import {
   Text,
   View,
 } from "react-native";
-import ListSection from "../components/ListSection";
 import {
   BannerAd,
-  BannerAdSize,
-  TestIds,
+  BannerAdSize
 } from "react-native-google-mobile-ads";
+import ListSection from "../components/ListSection";
 import { adsConfig } from "../utils/adsGlobal";
 
 const TremsScreen = () => {
-  const { bannerAds, interstialAds } = adsConfig("prod");
+  const { bannerAds, interstialAds } = adsConfig("pro");
   return (
     <SafeAreaView style={{ padding: 10 }}>
       <View

@@ -13,7 +13,7 @@ function App() {
     <PaperProvider>
     <QueryClientProvider client={queryClient}>
       <NavigationContainer>
-        <StatusBar backgroundColor={"white"} barStyle={"dark-content"}  />
+        <StatusBar backgroundColor={"#2D3250"} barStyle={"light-content"}  />
         <StackNavigator />
       </NavigationContainer>
     </QueryClientProvider>

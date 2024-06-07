@@ -1,4 +1,3 @@
-import SplashScreen from "../screens/SplashScreen";
 import TabNavigator from "./TabNavigator";
 import DetailScreen from "../screens/DetailScreen";
 
@@ -24,10 +23,8 @@ function StackNavigator() {
           height: 50,
           backgroundColor: "#2D3250",
         },
-        
       }}
     >
-      <Stack.Screen name="SplashScreen" component={SplashScreen} />
       <Stack.Screen
         options={{
           headerShown: true,
@@ -51,7 +48,6 @@ function StackNavigator() {
           ),
 
           headerTintColor: "white",
-          
         }}
         name="HomeScreen"
         component={TabNavigator}
@@ -66,7 +62,7 @@ function StackNavigator() {
         name="Privacy"
         component={PrivacyPolicy}
       />
-            <Stack.Screen
+      <Stack.Screen
         options={{
           headerShown: true,
           headerTitle: "Terms & Conditions",
@@ -92,6 +88,6 @@ const style = StyleSheet.create({
   titleHome: {
     color: "white",
     fontSize: 16,
-    fontFamily: "Poppins-SemiBold"
+    fontFamily: "Poppins-SemiBold",
   },
 });

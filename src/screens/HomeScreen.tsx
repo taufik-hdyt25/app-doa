@@ -12,11 +12,11 @@ import {
   AdEventType,
   BannerAd,
   BannerAdSize,
-  InterstitialAd,
-  TestIds,
+  InterstitialAd
 } from "react-native-google-mobile-ads";
 import ListItem from "../components/ListItem";
 import { adsConfig } from "../utils/adsGlobal";
+import { dataTambahan } from "../utils/dataTambahan";
 
 const HomeScreen = ({ navigation }: any) => {
   const { data: datas, isLoading } = useQuery({
@@ -25,12 +25,15 @@ const HomeScreen = ({ navigation }: any) => {
       const response = await axios.get(
         "https://doa-doa-api-ahmadramadhan.fly.dev/api"
       );
-      return response.data;
+      return [...dataTambahan,...response.data]
     },
   });
+  
+
+
 
   const [activeAds, setActiveAds] = useState(false);
-  const { bannerAds, interstialAds } = adsConfig("prod");
+  const { bannerAds, interstialAds } = adsConfig("pro");
 
   // buat iklan muncul full
 
@@ -100,6 +103,7 @@ const HomeScreen = ({ navigation }: any) => {
           <FlatList
             data={datas}
             keyExtractor={(item, index) => `key_doa${index}`}
+            ListFooterComponent={<View style={{height: 250}} />}
             renderItem={({ item, index }) => {
               return (
                 <View

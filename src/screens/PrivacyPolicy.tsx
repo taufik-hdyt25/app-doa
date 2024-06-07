@@ -7,8 +7,8 @@ import {
   Text,
   View,
 } from "react-native";
+import { BannerAd, BannerAdSize } from "react-native-google-mobile-ads";
 import ListSection from "../components/ListSection";
-import { BannerAd, BannerAdSize, TestIds } from "react-native-google-mobile-ads";
 import { adsConfig } from "../utils/adsGlobal";
 
 interface IData {
@@ -16,7 +16,7 @@ interface IData {
   link: string;
 }
 const PrivacyPolicy = () => {
-  const { bannerAds, interstialAds } = adsConfig("prod");
+  const { bannerAds, interstialAds } = adsConfig("pro");
   return (
     <SafeAreaView>
       <View
