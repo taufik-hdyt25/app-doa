@@ -5,10 +5,18 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Image, StyleSheet, Text, View } from "react-native";
 import PrivacyPolicy from "../screens/PrivacyPolicy";
 import TremsScreen from "../screens/TermsScreen";
+import { useNetInfo } from "@react-native-community/netinfo";
+import ErrorConnectionScreen from "../screens/ErrorConnetction";
 
 const Stack = createStackNavigator();
 
 function StackNavigator() {
+  const { isConnected } = useNetInfo();
+
+  if (isConnected === null || !isConnected) {
+    return <ErrorConnectionScreen />;
+  }
+
   return (
     <Stack.Navigator
       initialRouteName="HomeScreen"

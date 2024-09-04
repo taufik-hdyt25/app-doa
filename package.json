@@ -11,6 +11,7 @@
     "build": "npx react-native build-android --mode=release"
   },
   "dependencies": {
+    "@react-native-community/netinfo": "^11.3.2",
     "@react-native-masked-view/masked-view": "^0.3.1",
     "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/native": "^6.1.9",
